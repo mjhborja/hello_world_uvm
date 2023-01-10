@@ -5,6 +5,7 @@ Explanation of this testbench on YouTube:
 https://www.youtube.com/watch?v=Qn6SvG-Kya0
 *******************************************/
 
+// includes definition of uvm macros and user-defined package in this compilation unit
 `include "uvm_macros.svh"
 `include "my_testbench_pkg.svh"
 
