@@ -1,27 +1,56 @@
+// package: my_testbench_pkg
+// example user-defined package extending uvm_pkg constructs
 package my_testbench_pkg;
+  /* imports SystemVerilog enabling type compatibility for the entire 
+     library defined within the uvm package
+   */
   import uvm_pkg::*;
   
+  // includes definitions of user-defined constructs extending:
   // The UVM sequence, transaction item, and driver are in these files:
   `include "my_sequence.svh"
   `include "my_driver.svh"
   
+  // class: my_agent
+  // This is a user-defined active agent.
   // The agent contains sequencer, driver, and monitor (not included)
   class my_agent extends uvm_agent;
     `uvm_component_utils(my_agent)
     
+    // instances of driver and sequencer
     my_driver driver;
     uvm_sequencer#(my_transaction) sequencer;
     
+    /* SystemVerilog uses OOP concepts. This is its version of a constructor 
+       for the class object.
+     */
     function new(string name, uvm_component parent);
       super.new(name, parent);
     endfunction
     
+    /* BUILD PHASES include build_phase, connect_phase, and
+       end_of_elaboration_phase, which all occur in that sequence at time 0 
+       prior to RUN TIME PHASES.
+    */
+
+    /* build_phase is one of the common phases every uvm object synchronizes
+       with during execution. It is used for creation and configuration of
+       components of the test bench.
+     */
     function void build_phase(uvm_phase phase);
+      /* create method allows factory substitution of the driver type when
+         without modifying the latter using overrides configured during
+         instantiation.
+       */ 
       driver = my_driver ::type_id::create("driver", this);
       sequencer =
         uvm_sequencer#(my_transaction)::type_id::create("sequencer", this);
     endfunction    
     
+    /* connect_phase occurs right after the build_phase. And it is used to
+       connect components according to the topology of the test bench 
+       environment.
+     */
     // In UVM connect phase, we connect the sequencer to the driver.
     function void connect_phase(uvm_phase phase);
       driver.seq_item_port.connect(sequencer.seq_item_export);
