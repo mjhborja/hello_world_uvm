@@ -142,7 +142,7 @@ package my_testbench_pkg;
     endfunction
     
     /* component run_phase executes time-consuming activities / tasks
-       unitl the objection count drops to 0 signaling the end of the 
+       until the objection count drops to 0 signaling the end of the 
        phase.
      */
     task run_phase(uvm_phase phase);
