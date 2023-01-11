@@ -4,12 +4,18 @@ UVM Hello World
 This is a test bench based on source code from EDA Playground annotated by Martin to facilitate learning SystemVerilog language and universal verification methodology (UVM) conceptual constructs essential to building your first simulation-based verification environment.
 
 File Structure:
-+ source
-| - design.sv
-| - testbench.sv
-| - my_testbench_pkg.svh
-| - my_driver.svh
-. - my_sequence.svh
+
+\+ source
+\
+\| - design.sv
+\
+\| - testbench.sv
+\
+\| - my_testbench_pkg.svh
+\
+\| - my_driver.svh
+\
+\. - my_sequence.svh
 
 File Contents:
 1. design.sv - design under test (DUT) module and interface signals
