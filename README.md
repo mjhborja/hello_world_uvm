@@ -26,3 +26,8 @@ File Contents:
 
 Original / reference source code courtesy of EDA Playground
 https://www.edaplayground.com/x/296
+
+Additional References:
+Shimizu, K. (2012, November 10). UVM Tutorial for Candy Lovers – 11. Sequence Item Port – ClueLogic. ClueLogic. https://cluelogic.com/2012/11/uvm-tutorial-for-candy-lovers-sequence-item-port/
+
+UVM Sequence item. (n.d.). Verification Guide. Retrieved January 11, 2023, from https://verificationguide.com/uvm/uvm-sequence-item/
