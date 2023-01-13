@@ -14,7 +14,7 @@ Happy reading, simulating and learning, Cheers!
 
 __*test bench-to-DUT connection*__, __*stimuli propagation*__
 
-## Test Bench Topology
+## Test bench topology
 
 ![diagram_001 1-test_bench_topology](https://user-images.githubusercontent.com/50364461/212237340-df0fe5b7-4eef-4c66-a335-7752a833e2cc.png)
 
