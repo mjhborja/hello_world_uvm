@@ -5,7 +5,7 @@ This is a test bench based on source code from EDA Playground annotated by yours
 ### Key Takeaways
 
 __*test bench-to-DUT connection*__, __*stimuli propagation*__
-## What will you learn?
+## What will you learn here?
 
 As in many programming languages, a "Hello World" is used as an introduction. In this introduction to UVM and simulation-based verification, a simple test bench (TB) environment is built to show what such an environment looks like, its topology, and how it creates, randomizes, propagates stimuli to the design under verification / test (DUV/DUT).
 
