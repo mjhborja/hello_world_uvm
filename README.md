@@ -34,7 +34,7 @@ Third, the sequencer is connected with the driver during the UVM connect_phase()
 
 ### UVM Run phase excluding sequence body and driver signal propagation
 And then for the fourth diagram, the uvm_objection mechanism is initiated during the run_phase().
-![diagram_001 7-hello_world_uvm_sequence_diagram_run_phase_excluding_my_sequence_details](https://user-images.githubusercontent.com/50364461/212532588-a89b0298-904d-4505-b7e0-71a59b37eaf6.png)
+![diagram_001 7-hello_world_uvm_sequence_diagram_run_phase_excluding_my_sequence_details](https://user-images.githubusercontent.com/50364461/212533649-db6a340d-d728-454b-bdbc-ecda63e8cce1.png)
 
 ### Sequence body and driver signal propagation
 And finally, details of the sequence body are shown together with the handshake to drive interface signals connected to the driver via the UVM resources database.
