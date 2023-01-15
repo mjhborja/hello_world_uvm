@@ -10,7 +10,7 @@ class my_transaction extends uvm_sequence_item;
   // registers "my_transaction" object into the uvm factory
   `uvm_object_utils(my_transaction)
 
-  /* Using the discussion from (UVM Sequence Item, n.d.), control, payload,
+  /* Using the discussion from [3], control, payload,
      and configuration information originating from the TB are all randomized.
      This is why "rand" is appended to the field declarations.
    */

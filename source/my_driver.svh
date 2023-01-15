@@ -36,7 +36,7 @@ class my_driver extends uvm_driver #(my_transaction);
      there is no stimulus partitioning. Hence, only one phase is utilized. 
      For items originating from the sequence, the SystemVerilog "forever" 
      construct is used to encapsulate the sequencer handshake between
-     "get_next_item()" and "item_done()" (Shimizu, 2012).
+     "get_next_item()" and "item_done()" [2].
    */
   task run_phase(uvm_phase phase);
     // First toggle reset
