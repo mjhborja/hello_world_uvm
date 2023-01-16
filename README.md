@@ -26,19 +26,19 @@ First, the connection between the DUV/DUT and the UVM test bench is established 
 
 ### UVM Build phase
 Second, the UVM test bench components are built synchronous with the UVM build_phase().
-![diagram_001 5-hello_world_uvm_sequence_diagram_build_phase](https://user-images.githubusercontent.com/50364461/212532572-c658bcfa-71a2-4308-811e-580631320398.png)
+![diagram_001 5-hello_world_uvm_sequence_diagram_build_phase](https://user-images.githubusercontent.com/50364461/212608405-5063246e-6d41-4058-b46d-68d6d7158a6a.png)
 
 ### UVM Connect phase
 Third, the sequencer is connected with the driver during the UVM connect_phase().
-![diagram_001 6-hello_world_uvm_sequence_diagram_connect_phase](https://user-images.githubusercontent.com/50364461/212532579-f40e7162-7c75-4078-a9c6-952b9cf28445.png)
+![diagram_001 6-hello_world_uvm_sequence_diagram_connect_phase](https://user-images.githubusercontent.com/50364461/212608452-0e99f7b5-de96-482f-ae31-c3db700dfb8f.png)
 
 ### UVM Run phase excluding sequence body and driver signal propagation
 And then for the fourth diagram, the uvm_objection mechanism is initiated during the run_phase().
-![diagram_001 7-hello_world_uvm_sequence_diagram_run_phase_excluding_my_sequence_details](https://user-images.githubusercontent.com/50364461/212533649-db6a340d-d728-454b-bdbc-ecda63e8cce1.png)
+![diagram_001 7-hello_world_uvm_sequence_diagram_run_phase_excluding_my_sequence_details](https://user-images.githubusercontent.com/50364461/212608477-1ed716de-3937-4cef-9b83-71ed3bb7ae78.png)
 
 ### Sequence body and driver signal propagation
 And finally, details of the sequence body are shown together with the handshake to drive interface signals connected to the driver via the UVM resources database.
-![diagram_001 8-hello_world_uvm_sequence_diagram_run_phase_my_sequence_details](https://user-images.githubusercontent.com/50364461/212532596-f86d23ea-6d0e-452e-ac1f-9c8444de8424.png)
+![diagram_001 8-hello_world_uvm_sequence_diagram_run_phase_my_sequence_details](https://user-images.githubusercontent.com/50364461/212608505-db8fcf5f-f7e0-45b1-ab44-ebe13da31a38.png)
 
 ## How are all these mapped in the source code?
 
