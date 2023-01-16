@@ -75,3 +75,6 @@ https://www.edaplayground.com/x/296
 [2] K. Shimizu, “UVM Tutorial for Candy Lovers – 11. Sequence Item Port – ClueLogic,” ClueLogic, Nov. 10, 2012. https://cluelogic.com/2012/11/uvm-tutorial-for-candy-lovers-sequence-item-port/ (accessed Jan. 11, 2023).
 \
 [3] “UVM Sequence item,” Verification Guide. https://verificationguide.com/uvm/uvm-sequence-item/ (accessed Jan. 11, 2023).
+
+## Note to reader
+The review content including analysis, diagrams and overall presentation of the topic is Martin's original contribution. 
