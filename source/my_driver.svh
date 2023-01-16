@@ -26,7 +26,10 @@ class my_driver extends uvm_driver #(my_transaction);
      and DUT: TB(VIF)<->DUT(IF) style
    */
   function void build_phase(uvm_phase phase);
-    // Get interface reference from config database
+    /* 7. invoke "get()" method of the uvm_config_db interface to the UVM
+       resource database
+       Get interface reference from config database
+     */
     if(!uvm_config_db#(virtual dut_if)::get(this, "", "dut_vif", dut_vif)) begin
       `uvm_error("", "uvm_config_db::get failed")
     end
@@ -47,14 +50,25 @@ class my_driver extends uvm_driver #(my_transaction);
     
     // Now drive normal traffic
     forever begin
+      /* 23. invoke "get_next_item()" method of the uvm_sequencer base class
+         Triggers retrieval of the next sequence item from a sequence 
+         associated through the sequencer. Step 24. is the outcome of 23.
+       */
       seq_item_port.get_next_item(req);
 
-      // Wiggle pins of DUT
+      /* 25. assign values from the sequence item into respective interface
+         signals and cycle timing
+         Wiggle pins of DUT
+       */
       dut_vif.cmd  = req.cmd;
       dut_vif.addr = req.addr;
       dut_vif.data = req.data;
       @(posedge dut_vif.clock);
 
+      /* 26. invoke "item_done()" method of the uvm_sequencer base class
+         Indicates transfer completion for associated sequencer originating
+         sequence item.
+       */
       seq_item_port.item_done();
     end
   endtask

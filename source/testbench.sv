@@ -45,9 +45,16 @@ module top;
      phasing
    */
   initial begin
-    // Place the interface into the UVM configuration database
+    /* 1. invoke "set()" method of the uvm_config_db interface to the UVM 
+       resource database
+       Place the interface into the UVM configuration database
+     */
     uvm_config_db#(virtual dut_if)::set(null, "*", "dut_vif", dut_if1);
-    // Start the test
+    /* 2. invoke global "run_test()" method to phase all components in the test
+       bench hierarchy
+       3. occurs internal to the UVM base class library (BCL)
+       Start the test
+     */
     run_test("my_test");
   end
   

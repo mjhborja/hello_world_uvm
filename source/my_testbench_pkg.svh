@@ -42,7 +42,8 @@ package my_testbench_pkg;
        components of the test bench.
      */
     function void build_phase(uvm_phase phase);
-      /* create method allows factory substitution of the driver type 
+      /* 6. & 8. invoke "create()" method of the uvm_component base class
+         The create method allows factory substitution of the driver type 
          without modifying the latter using overrides configured during
          instantiation.
        */ 
@@ -57,6 +58,10 @@ package my_testbench_pkg;
      */
     // In UVM connect phase, we connect the sequencer to the driver.
     function void connect_phase(uvm_phase phase);
+      /* 9. & 10. invoke "connect" method of the seq_item_pull_port instance of 
+         the uvm_driver base class to connect with the uvm_seq_item_pull_imp
+         instance of the uvm_sequencer base class
+       */
       driver.seq_item_port.connect(sequencer.seq_item_export);
     endfunction
     /* RUN TIME PHASES embody the testing processes within the simulation.
@@ -66,7 +71,8 @@ package my_testbench_pkg;
        achievable through the sub phases, which is worth another topic.
      */
     task run_phase(uvm_phase phase);
-      /* "raise_objection()" is a method that indicates whether it is safe
+      /* 12. invoke "raise_objection()" method
+         "raise_objection()" is a method that indicates whether it is safe
          to end a phase. It is necessary to raise the objection manually in
          the case of explicitly started sequences as is shown in this example.
        */
@@ -75,14 +81,17 @@ package my_testbench_pkg;
       begin
         my_sequence seq;
         seq = my_sequence::type_id::create("seq");
-        /* Explicit start for a sequence invoked using the "start()" method
+        /* 13. & 14. invoke "start()" method of the uvm_sequence_base base 
+           class
+           Explicit start for a sequence invoked using the "start()" method
            from within the agent. 
          */
         seq.start(sequencer);
       end
-      /* "drop_objection()" is manually invoked to indicate phase activity 
-        completion as a consequence of the explicit sequence start in this 
-        example.
+      /* 29. invoke "drop_objection()" method
+         "drop_objection()" is manually invoked to indicate phase activity 
+         completion as a consequence of the explicit sequence start in this 
+         example.
        */
       // We drop objection to allow the test to complete
       phase.drop_objection(this);
@@ -111,6 +120,7 @@ package my_testbench_pkg;
        factory
      */
     function void build_phase(uvm_phase phase);
+      // 5. invoke "create()" method of the uvm_component base class
       agent = my_agent::type_id::create("agent", this);
     endfunction
 
@@ -138,6 +148,7 @@ package my_testbench_pkg;
        factory
      */
     function void build_phase(uvm_phase phase);
+      // 4. invoke "create()" method of the uvm_component base class
       env = my_env::type_id::create("env", this);
     endfunction
     
@@ -146,10 +157,14 @@ package my_testbench_pkg;
        phase.
      */
     task run_phase(uvm_phase phase);
+      /* 11. invoke "raise_objection()" method
+       */
       // We raise objection to keep the test from completing
       phase.raise_objection(this);
       #10;
       `uvm_warning("", "Hello World!")
+      /* 30. invoke "drop_objection()" method
+       */
       // We drop objection to allow the test to complete
       phase.drop_objection(this);
     endtask

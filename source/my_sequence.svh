@@ -35,11 +35,11 @@ endclass: my_transaction
    uvm_sequence is an object used to create transaction related events or
    manage other sequences.
    In this specific user-defined sequence example, a sequence item is:
-   1. created;
-   2. introduced to the connected driver for propagation;
-   3. randomized;
-   4. sent to the driver; and 
-   5. lastly, end indicating the corresponding transaction completion response
+   15. created;
+   16. introduced to the connected driver for propagation;
+   19. randomized;
+   21. sent to the driver; and 
+   28. lastly, end indicating the corresponding transaction completion response
    from the driver.
    This is iterated for 8 random transactions in the body().
  */
@@ -57,18 +57,24 @@ class my_sequence extends uvm_sequence#(my_transaction);
    */
   task body;
     repeat(8) begin
-      // A sequence item is created - 1.
+      /* 15. invoke "create()" method of the uvm_object base class
+         A sequence item is created
+       */
       req = my_transaction::type_id::create("req");
 
-      /* The start_item() method call indicates that this sequence is 
+      /* 16. invoke "start_item()" method of the uvm_sequence_base base class
+         The start_item() method call indicates that this sequence is 
          associated with a sequencer. This is a blocking method that requests 
-         the driver on the other end to propagate the sequence item - 2.
+         the driver on the other end to propagate the sequence item.
+         17. & 18. are internal steps 
        */
       start_item(req);
 
-      /* Once the driver grants the request, the item can now be randomized
+      /* 19. invoke "randomize()" method of the SystemVerilog HVL
+         Once the driver grants the request, the item can now be randomized
          in order to retain the most recent values based on the item 
-         constraints prior to sending to the driver via the sequencer - 3.
+         constraints prior to sending to the driver via the sequencer.
+         20. is the outcome of 19.
        */
       if (!req.randomize()) begin
         `uvm_error("MY_SEQUENCE", "Randomize failed.");
@@ -80,9 +86,11 @@ class my_sequence extends uvm_sequence#(my_transaction);
       // req.addr = $urandom_range(0, 255);
       // req.data = $urandom_range(0, 255);
 
-      /* The finish_item() method call is also a blocking method. It sends the
-         sequence item to the driver via the sequencer - 4. And then it ends 
-         upon receipt of completion - 5.
+      /* 21. invoke "finish_item()" method of the uvm_sequence_base base class
+         The finish_item() method call is also a blocking method. It sends the
+         sequence item to the driver via the sequencer - 22. And then it ends 
+         upon receipt of completion - 27. & 28. Steps 22., 27. and 28. are 
+         internal.
        */
       finish_item(req);
     end
