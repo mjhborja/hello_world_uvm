@@ -21,28 +21,29 @@ The sequence diagram that describes what the test bench does is divided into 5 s
 
 ### Connection between top and the UVM test bench
 First, the connection between the DUV/DUT and the UVM test bench is established at the top module.
-![diagram_001 4-hello_world_uvm_sequence_diagram_top_to_test](https://user-images.githubusercontent.com/50364461/213084884-729c7c30-3972-4cb1-8aa9-667d61df77a9.png)
+![diagram_001 4-hello_world_uvm_sequence_diagram_top_to_test](https://user-images.githubusercontent.com/50364461/213087701-305a1210-ebc6-42a3-ad0d-905b68e3adbe.png)
 
 ### UVM Build phase
 Second, the UVM test bench components are built synchronous with the UVM build_phase().
-![diagram_001 5-hello_world_uvm_sequence_diagram_build_phase](https://user-images.githubusercontent.com/50364461/213084906-7cb0e512-c50e-4edc-b456-c3f56e4daad7.png)
+![diagram_001 5-hello_world_uvm_sequence_diagram_build_phase](https://user-images.githubusercontent.com/50364461/213088585-4dd0a9bc-258e-4f9e-a58e-2889dfdd510e.png)
 
 ### UVM Connect phase
 Third, the sequencer is connected with the driver during the UVM connect_phase().
-![diagram_001 6-hello_world_uvm_sequence_diagram_connect_phase](https://user-images.githubusercontent.com/50364461/213084930-22bbf937-1aa3-4398-9c3b-0d47d2e417c1.png)
+![diagram_001 6-hello_world_uvm_sequence_diagram_connect_phase](https://user-images.githubusercontent.com/50364461/213088705-c5ba8f93-fed7-4ab9-a6d0-c3607d501def.png)
 
 ### UVM Run phase excluding sequence body and driver signal propagation
 And then for the fourth diagram, the uvm_objection mechanism is initiated during the run_phase().
-![diagram_001 7-hello_world_uvm_sequence_diagram_run_phase_excluding_my_sequence_details](https://user-images.githubusercontent.com/50364461/213084950-7d5b714a-c342-43d7-bdee-a548857e9e5f.png)
+![diagram_001 7-hello_world_uvm_sequence_diagram_run_phase_excluding_my_sequence_details](https://user-images.githubusercontent.com/50364461/213088729-73a355b3-bf18-48d2-a442-61d09bf75239.png)
 
 ### Sequence body and driver signal propagation
 And finally, details of the sequence body are shown together with the handshake to drive interface signals connected to the driver via the UVM resources database.
-![diagram_001 8-hello_world_uvm_sequence_diagram_run_phase_my_sequence_details](https://user-images.githubusercontent.com/50364461/213085238-592db1f2-e9a6-4e2d-abea-ebee9a4c3c37.png)
+![diagram_001 8-hello_world_uvm_sequence_diagram_run_phase_my_sequence_details](https://user-images.githubusercontent.com/50364461/213089070-f0c3d707-980a-4b96-9dc4-c706a25c8d33.png)
 
 ## How are all these mapped in the source code?
 
 ### File Structure:
-![diagram_001 2-file_structure_mapping](https://user-images.githubusercontent.com/50364461/213086195-032e39d2-86e2-483b-8dcf-50117850daf4.png)
+![diagram_001 2-file_structure_mapping](https://user-images.githubusercontent.com/50364461/213090542-e9dac7f5-afd2-47df-8282-888e64409b9f.png)
+
 \+ source
 \
 \| - design.sv
