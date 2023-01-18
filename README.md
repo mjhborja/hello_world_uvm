@@ -42,7 +42,7 @@ And finally, details of the sequence body are shown together with the handshake 
 ## How are all these mapped in the source code?
 
 ### File Structure:
-![diagram_001 2-file_structure_mapping](https://user-images.githubusercontent.com/50364461/213082526-9d40df70-2500-4a66-8ebb-c8e593a6d831.png)
+![diagram_001 2-file_structure_mapping](https://user-images.githubusercontent.com/50364461/213086195-032e39d2-86e2-483b-8dcf-50117850daf4.png)
 \+ source
 \
 \| - design.sv
