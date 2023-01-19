@@ -64,7 +64,7 @@ And finally, details of the sequence body are shown together with the handshake 
 5. my_sequence.svh - user-defined sequence item and sequence objects
 
 ## Simulate & play with the code
-EDA Playground Example - UVM Hello World
+EDA Playground Example - UVM Hello World by Victor Lyuboslavsky
 https://www.edaplayground.com/x/296
 
 ## Additional references
