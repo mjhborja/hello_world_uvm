@@ -75,4 +75,4 @@ https://www.edaplayground.com/x/296
 [3] “UVM Sequence item,” Verification Guide. https://verificationguide.com/uvm/uvm-sequence-item/ (accessed Jan. 11, 2023).
 
 ## Note to reader
-The review content including comments to the original source code, analysis, diagrams and overall presentation of the topic is Martin's original contribution. 
+The review content including comments to the original source code, analysis, diagrams and overall presentation of the topic is Martin's original contribution. The source code for this post is not Martin's work.
